@@ -34,20 +34,24 @@ export class ProductService {
   // chamará a função que vamos passar.
 
   read(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl)
+    return this.http.get<Product[]>(this.baseUrl);
   } // Method get ler info backend e retornar observablo da lista de produtos do backend
 
 
   readById(id: string): Observable<Product> {
-    const url = `${this.baseUrl}/${id}`
-    return this.http.get<Product>(url)
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Product>(url);
   }
 
   update(product: Product): Observable<Product> {
-    const url = `${this.baseUrl}/${product.id}`
-    return this.http.put<Product>(url, product)
+    const url = `${this.baseUrl}/${product.id}`;
+    return this.http.put<Product>(url, product);
   }
 
+  delete(id: string): Observable<Product> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<Product>(url);
+  }
 
 
 }
